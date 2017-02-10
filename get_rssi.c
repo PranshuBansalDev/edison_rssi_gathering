@@ -7,7 +7,6 @@
 
 #define BUF_SIZE 256
 #define MILLION 1000000.0
-#define clear(X) (memset(X, 0, sizeof(X)))
 
 typedef unsigned char byte_t;
 
