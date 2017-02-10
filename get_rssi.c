@@ -66,17 +66,6 @@ uint64_t get_addr(char *line_addr, size_t len_addr)
 }
 
 /*
- *
- */
-int compare_rssi(const void *a, const void *b)
-{
-	const struct rssi_info *ra = (const struct rssi_info*) a;
-	const struct rssi_info *rb = (const struct rssi_info*) b;
-
-	return (ra->signal > rb->signal) - (ra->signal < rb->signal);
-}
-
-/*
  * Function:	process_file
  * -------------------------
  *  Return: array of (struct rssi_info*) objects sorted by RSSI's
@@ -120,8 +109,6 @@ struct rssi_info** process_file(FILE *fp, int router_count)
 
 		rssi_arr[i] = rssi_obj;
 	}
-	qsort(rssi_arr, router_count, sizeof(struct rssi_info*), 
-			compare_rssi);
 	return rssi_arr;	
 }
 
